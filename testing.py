@@ -37,7 +37,7 @@ def get_model():
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model = convnext_base(pretrained = False)
 
-    state_dict = torch.load("checkpoints/Convnext_base_strong_aug_4_2023Nov28_15.51")
+    state_dict = torch.load("checkpoint/Convnext_base_strong_aug_4_2024Nov20_04.32",map_location=torch.device('cpu'))
     model.load_state_dict(state_dict["net"])
     model.to(device)
     model.eval()
